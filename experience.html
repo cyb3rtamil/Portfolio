@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Log | Tamilselvan S</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... (Same CSS as previous) ... */
+        :root { --neon: #00f3ff; --dark: #050505; --glass: rgba(10, 10, 10, 0.8); }
+        body { background-color: var(--dark); color: #ffffff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; cursor: none; }
+        html.lenis { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto !important; } .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; } .lenis.lenis-stopped { overflow: hidden; }
+        
+        #cursor, #cursor-dot { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; transform: translate3d(-50%, -50%, 0); will-change: transform; }
+        #cursor { width: 20px; height: 20px; border: 1px solid var(--neon); transition: width 0.3s, height 0.3s, background 0.3s; mix-blend-mode: difference; }
+        #cursor-dot { width: 4px; height: 4px; background: var(--neon); }
+        
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .text-neon { color: var(--neon); text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .glass { background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; will-change: transform; }
+        .glass:hover { border-color: var(--neon); background: rgba(0, 243, 255, 0.05); }
+        
+        .timeline-line { position: absolute; left: 2rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--neon), transparent); opacity: 0.3; }
+        @media (min-width: 768px) { .timeline-line { left: 50%; transform: translateX(-50%); } }
+        
+        .check-list li { margin-bottom: 0.8rem; display: flex; align-items: flex-start; gap: 0.8rem; line-height: 1.6; text-align: left; }
+        .check-list li::before { content: '>'; color: var(--neon); font-family: monospace; font-weight: bold; margin-top: 2px; flex-shrink: 0; }
+        
+        .icon-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        .tech-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 8px; text-align: center; transition: all 0.3s ease; }
+        .tech-box:hover { border-color: var(--neon); transform: translateY(-3px); background: rgba(0, 243, 255, 0.05); }
+        
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <div id="cursor"></div><div id="cursor-dot"></div><div id="canvas-container"></div>
+
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center mix-blend-difference">
+        <a href="index.html" class="mono font-bold text-xl tracking-tighter hover:text-neon transition-colors"><i class="fas fa-arrow-left mr-2"></i> HOME</a>
+        <div class="mono text-xs border border-white/20 px-4 py-2">OPERATIONS LOG</div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 md:px-24 max-w-7xl mx-auto relative">
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 text-center">FIELD <span class="text-neon">EXPERIENCE</span></h1>
+        <p class="text-center text-gray-400 mono text-sm mb-24">/// DEPLOYMENT HISTORY & INTERNSHIPS</p>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32 relative reveal-section items-center">
+                <div class="hidden md:block pr-12 text-right">
+                    <h4 class="mono text-neon text-sm mb-4">SKILLS MATRIX //</h4>
+                    <div class="icon-grid">
+                        <div class="tech-box"><i class="fas fa-bug text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Bug Bounty</div></div>
+                        <div class="tech-box"><i class="fas fa-user-secret text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Ethical Hacking</div></div>
+                        <div class="tech-box"><i class="fas fa-laptop-code text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Pen Testing</div></div>
+                        <div class="tech-box"><i class="fas fa-server text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Networking</div></div>
+                    </div>
+                </div>
+                <div class="relative pl-12 md:pl-0">
+                    <div class="glass p-8 rounded-xl border-l-4 border-neon">
+                        <div class="flex justify-between items-start mb-4">
+                            <div><h3 class="text-2xl font-bold text-white">Skillphantom Technologies</h3><div class="text-neon mono text-sm mt-1">Cybersecurity Intern</div></div>
+                            <span class="mono text-xs border border-white/20 px-2 py-1 rounded bg-white/5">30 DAYS</span>
+                        </div>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed text-left">Focused on advanced security operations and lab infrastructure setup.</p>
+                        <ul class="check-list text-sm text-gray-300">
+                            <li>Mastered cybersecurity fundamentals, risk management, and network analysis using Wireshark.</li>
+                            <li>Gained practical experience by setting up a custom security lab utilizing tools like Nmap, Metasploit, and SIEM.</li>
+                            <li>Enhanced security operations skills specifically in log analysis and system hardening techniques.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24 relative reveal-section items-center">
+                <div class="relative pl-12 md:pr-0 md:pl-0">
+                    <div class="glass p-8 rounded-xl border-l-4 md:border-l-0 md:border-r-4 border-neon">
+                        <div class="flex flex-col md:items-end mb-4">
+                            <div class="flex justify-between w-full md:justify-end md:gap-4 items-center">
+                                <span class="mono text-xs border border-white/20 px-2 py-1 rounded bg-white/5 md:order-2">21 DAYS</span>
+                                <h3 class="text-2xl font-bold text-white md:order-1">Prompt Infotech</h3>
+                            </div>
+                            <div class="text-neon mono text-sm mt-1">Cybersecurity Intern | Coimbatore</div>
+                        </div>
+                        <p class="text-gray-400 mb-6 text-sm leading-relaxed text-left md:text-right">Specialized in ethical hacking and vulnerability assessment.</p>
+                        <ul class="check-list text-sm text-gray-300 md:flex md:flex-col md:items-end">
+                            <li>Assisted in identifying critical security flaws through ethical hacking and vulnerability scanning.</li>
+                            <li>Learned core bug bounty techniques and applied them in real-world scenarios.</li>
+                            <li>Implemented industry-standard cybersecurity best practices within simulated environments.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden md:block pl-12">
+                    <h4 class="mono text-neon text-sm mb-4">// TOOLS DEPLOYED</h4>
+                    <div class="icon-grid">
+                        <div class="tech-box"><i class="fas fa-network-wired text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Wireshark</div></div>
+                        <div class="tech-box"><i class="fas fa-search-location text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Nmap</div></div>
+                        <div class="tech-box"><i class="fas fa-bug text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">Metasploit</div></div>
+                        <div class="tech-box"><i class="fas fa-shield-alt text-2xl mb-2 text-gray-300"></i><div class="mono text-xs text-neon">SIEM</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center border-t border-white/10 bg-black/50">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mono text-sm text-neon mb-8">
+            <div class="flex items-center gap-2"><i class="fas fa-phone"></i> +91 6380818817</div>
+            <a href="mailto:tamilselvan.cyber@gmail.com" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-envelope"></i> tamilselvan.cyber@gmail.com</a>
+        </div>
+        <div class="flex justify-center gap-8 mono text-sm text-neon">
+            <a href="https://www.linkedin.com/in/tamilselvan-s-2648b72b4/" target="_blank" class="hover:underline flex items-center gap-2"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+            <a href="https://github.com/cyb3rtamil" target="_blank" class="hover:underline flex items-center gap-2"><i class="fab fa-github"></i> GITHUB</a>
+        </div>
+        <p class="mt-8 text-gray-600 text-xs mono">SYSTEM ID: 231cy054</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ smooth: true }); function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+        const cursor = document.getElementById('cursor'); const cursorDot = document.getElementById('cursor-dot');
+        document.addEventListener('mousemove', (e) => { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; cursor.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: "forwards" }); });
+        
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.reveal-section').forEach(elem => {
+            gsap.from(elem, { scrollTrigger: { trigger: elem, start: "top 85%" }, y: 50, opacity: 0, duration: 1, ease: "power3.out" });
+        });
+
+        // 3D Background
+        const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); camera.position.z = 20;
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); renderer.setSize(window.innerWidth, window.innerHeight); document.getElementById('canvas-container').appendChild(renderer.domElement);
+        const particlesGeo = new THREE.BufferGeometry(); const count = 800; const posArray = new Float32Array(count * 3);
+        for(let i=0; i<count*3; i++) { posArray[i] = (Math.random() - 0.5) * 50; } particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.05, color: 0x00f3ff, transparent: true, opacity: 0.5 });
+        const particleSystem = new THREE.Points(particlesGeo, particlesMat); scene.add(particleSystem);
+        const animate = () => { requestAnimationFrame(animate); particleSystem.rotation.y += 0.001; renderer.render(scene, camera); }; animate();
+        window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Portal | Tamilselvan S</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --neon: #00f3ff; --dark: #050505; --glass: rgba(10, 10, 10, 0.8); }
+        body { background-color: var(--dark); color: #ffffff; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; cursor: none; }
+        html.lenis { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto !important; } .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; } .lenis.lenis-stopped { overflow: hidden; }
+        #cursor, #cursor-dot { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; transform: translate3d(-50%, -50%, 0); will-change: transform; }
+        #cursor { width: 20px; height: 20px; border: 1px solid var(--neon); transition: width 0.3s, height 0.3s, background 0.3s; mix-blend-mode: difference; }
+        #cursor-dot { width: 4px; height: 4px; background: var(--neon); }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .text-neon { color: var(--neon); text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .glass { background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.4s ease; will-change: transform; } .glass:hover { border-color: var(--neon); background: rgba(0, 243, 255, 0.05); }
+        .check-list li { margin-bottom: 0.5rem; display: flex; align-items: start; gap: 0.5rem; } .check-list li::before { content: '✓'; color: var(--neon); font-family: monospace; }
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; opacity: 0.6; }
+    </style>
+</head>
+<body>
+    <div id="cursor"></div><div id="cursor-dot"></div><div id="canvas-container"></div>
+
+    <nav class="absolute top-0 w-full z-50 px-8 py-8 flex justify-between items-center">
+        <a href="index.html" class="mono font-bold text-xl tracking-tighter hover:text-neon transition-colors"><i class="fas fa-arrow-left mr-2"></i> HOME</a>
+        <div class="hidden md:flex items-center gap-2 bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/5">
+            <span class="mono text-xs text-neon px-4">PROJECT 001</span>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-6 md:px-24 max-w-7xl mx-auto">
+        <article class="reveal-section">
+            <div class="border-l-2 border-neon pl-6 mb-8">
+                <div class="mono text-neon text-sm mb-2">PROJECT ID: 001</div>
+                <h1 class="text-4xl md:text-6xl font-bold">College Attendance Portal</h1>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="md:col-span-2 glass p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white"><i class="fas fa-search text-neon mr-2"></i> Project Overview</h3>
+                    <p class="text-gray-400 leading-relaxed">The College Attendance Portal is a secure desktop-based application designed to simplify and automate student attendance management. It enables faculty and administrators to accurately mark, track, and analyze attendance records using a centralized database.</p>
+                </div>
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white"><i class="fas fa-bullseye text-neon mr-2"></i> Objective</h3>
+                    <ul class="check-list text-gray-400 text-sm mono">
+                        <li>Reduces manual effort</li>
+                        <li>Improves accuracy</li>
+                        <li>Provides real-time attendance insights</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold mb-6">⚙️ Key Features</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="glass p-6 rounded-lg"><div class="text-neon font-bold mb-2">Secure Authentication</div><p class="text-sm text-gray-400">Staff, students, and admin login with role-based access.</p></div>
+                <div class="glass p-6 rounded-lg"><div class="text-neon font-bold mb-2">Attendance Marking</div><p class="text-sm text-gray-400">Faculty can mark attendance only for assigned subjects and hours.</p></div>
+                <div class="glass p-6 rounded-lg"><div class="text-neon font-bold mb-2">Attendance Summary</div><p class="text-sm text-gray-400">Displays total hours, attended hours, and attendance percentage.</p></div>
+                <div class="glass p-6 rounded-lg"><div class="text-neon font-bold mb-2">Date-based Reports</div><p class="text-sm text-gray-400">Generate attendance reports for custom date ranges.</p></div>
+                <div class="glass p-6 rounded-lg"><div class="text-neon font-bold mb-2">Mini Attendance View</div><p class="text-sm text-gray-400">Quick view of recent attendance entries.</p></div>
+                <div class="glass p-6 rounded-lg"><div class="text-neon font-bold mb-2">Admin Dashboard</div><p class="text-sm text-gray-400">Centralized monitoring and report generation.</p></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">🛠️ Technologies Used</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-3 py-1 border border-white/20 rounded-full mono text-xs text-neon">Java (Swing)</span>
+                        <span class="px-3 py-1 border border-white/20 rounded-full mono text-xs text-neon">MySQL</span>
+                        <span class="px-3 py-1 border border-white/20 rounded-full mono text-xs text-neon">JDBC</span>
+                        <span class="px-3 py-1 border border-white/20 rounded-full mono text-xs text-neon">GitHub</span>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">🗄️ Database Integration</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">All student records, attendance logs, and user credentials are securely stored and managed using a MySQL database, ensuring data integrity and consistency.</p>
+                </div>
+            </div>
+
+            <div class="glass p-8 rounded-xl border-t-2 border-neon">
+                <h3 class="text-xl font-bold mb-4">🚀 Future Enhancements</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                    <span class="text-xs text-gray-400 mono">> Password Encryption</span>
+                    <span class="text-xs text-gray-400 mono">> RFID-based Attendance</span>
+                    <span class="text-xs text-gray-400 mono">> Wi-Fi Auto-Attendance</span>
+                    <span class="text-xs text-gray-400 mono">> Automated Backups</span>
+                    <span class="text-xs text-gray-400 mono">> Mobile App (Android/iOS)</span>
+                </div>
+                <div class="border-t border-white/10 pt-4 mt-4"><p class="text-gray-300 italic text-sm">"The College Attendance Portal improves efficiency, accuracy, and transparency in attendance tracking. By automating the process, it minimizes errors and reduces administrative workload."</p></div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="py-12 text-center border-t border-white/10 bg-black/50">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mono text-sm text-neon mb-8">
+            <div class="flex items-center gap-2"><i class="fas fa-phone"></i> +91 6380818817</div>
+            <a href="mailto:tamilselvan.cyber@gmail.com" class="hover:text-white transition-colors flex items-center gap-2"><i class="fas fa-envelope"></i> tamilselvan.cyber@gmail.com</a>
+        </div>
+        <div class="flex justify-center gap-8 mono text-sm text-neon">
+            <a href="https://www.linkedin.com/in/tamilselvan-s-2648b72b4/" target="_blank" class="hover:underline flex items-center gap-2"><i class="fab fa-linkedin"></i> LINKEDIN</a>
+            <a href="https://github.com/cyb3rtamil" target="_blank" class="hover:underline flex items-center gap-2"><i class="fab fa-github"></i> GITHUB</a>
+        </div>
+        <p class="mt-8 text-gray-600 text-xs mono">SYSTEM ID: 231cy054</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ smooth: true }); function raf(time) { lenis.raf(time); requestAnimationFrame(raf); } requestAnimationFrame(raf);
+        const cursor = document.getElementById('cursor'); const cursorDot = document.getElementById('cursor-dot');
+        document.addEventListener('mousemove', (e) => { cursorDot.style.left = e.clientX + 'px'; cursorDot.style.top = e.clientY + 'px'; cursor.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: "forwards" }); });
+        
+        const scene = new THREE.Scene(); const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); camera.position.z = 20;
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true }); renderer.setSize(window.innerWidth, window.innerHeight); document.getElementById('canvas-container').appendChild(renderer.domElement);
+        const particlesGeo = new THREE.BufferGeometry(); const count = 800; const posArray = new Float32Array(count * 3);
+        for(let i=0; i<count*3; i++) { posArray[i] = (Math.random() - 0.5) * 50; } particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.05, color: 0x00f3ff, transparent: true, opacity: 0.5 });
+        const particleSystem = new THREE.Points(particlesGeo, particlesMat); scene.add(particleSystem);
+        const animate = () => { requestAnimationFrame(animate); particleSystem.rotation.y += 0.001; renderer.render(scene, camera); }; animate();
+    </script>
+</body>
+</html>
